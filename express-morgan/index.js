@@ -3,6 +3,6 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.listen(3000, () => {
-    console.debug('App listening on :3000');
+app.listen(3001, () => {
+    console.debug('App listening on :3001');
 });
