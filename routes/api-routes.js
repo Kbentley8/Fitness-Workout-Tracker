@@ -13,18 +13,15 @@ module.exports = (app) => {
             }
         });
     });
-    // get workouts in range
-app.get("/api/workouts/range", (req, res) => {
-    console.log(dbWorkout)
-    db.Workout.find({}).then(dbWorkout => {
-        console.log("ALL WORKOUTS");
-        console.log(dbWorkout);
-
-        res.json(dbWorkout);
-    }).catch(err => {
-        res.json(err);
-    });
+    // App.get 
+    app.get("/api/workouts/range", ({}, res) => {
+        db.Workout.find({}).then((dbWorkout) => {
+          res.json(dbWorkout);
+        }).catch(err => {
+          res.status(400).json(err);
+        });
       });
+    
     //add excerise, set id, push to model, set true
     app.put("/api/workouts/:workout", ({ params, body }, res) => {
         db.Workout.findOneAndUpdate({ _id: params.id},
@@ -34,6 +31,7 @@ app.get("/api/workouts/range", (req, res) => {
                                         res.json(updatedWorkout);
                                     })
     });
+    
     //create new workout
     app.post('/api/workouts', (req,res) => {
         db.Workout.create({}).then(newWorkout => {
