@@ -22,8 +22,8 @@ mongoose.connect(
 //require('./seeders/seed')
 
 //use routes
-(require('./routes/api'))(app);
-(require('./routes/html'))(app);
+app.use(require('./routes/api.js'));
+app.use(require('./routes/html.js'))
 
 
 app.listen(PORT, () => {
