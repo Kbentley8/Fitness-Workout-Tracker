@@ -13,8 +13,6 @@ app.use(logger("dev"));
 //parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 app.use(express.static("public"));
 
 mongoose.connect(
@@ -24,8 +22,8 @@ mongoose.connect(
 //require('./seeders/seed')
 
 //use routes
-(require('./routes/api-routes'))(app);
-(require('./routes/html-routes'))(app);
+(require('./routes/api'))(app);
+(require('./routes/html'))(app);
 
 
 app.listen(PORT, () => {
