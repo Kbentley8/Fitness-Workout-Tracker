@@ -15,7 +15,7 @@ module.exports = (app) => {
     });
     // get workouts in range
 app.get("/api/workouts/range", (req, res) => {
-
+    console.log(dbWorkout)
     db.Workout.find({}).then(dbWorkout => {
         console.log("ALL WORKOUTS");
         console.log(dbWorkout);
