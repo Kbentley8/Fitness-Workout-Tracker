@@ -13,6 +13,18 @@ module.exports = (app) => {
             }
         });
     });
+    // get workouts in range
+app.get("/api/workouts/range", (req, res) => {
+
+    db.Workout.find({}).then(dbWorkout => {
+        console.log("ALL WORKOUTS");
+        console.log(dbWorkout);
+
+        res.json(dbWorkout);
+    }).catch(err => {
+        res.json(err);
+    });
+      });
     //add excerise, set id, push to model, set true
     app.put("/api/workouts/:workout", ({ params, body }, res) => {
         db.Workout.findOneAndUpdate({ _id: params.id},
