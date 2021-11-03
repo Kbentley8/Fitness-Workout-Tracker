@@ -24,6 +24,11 @@ mongoose.connect(
 //use routes
 app.use(require('./routes/api.js'));
 app.use(require('./routes/html.js'))
+app.get("*", (req,res) => {
+  res.sendFile(path.join(__dirname,"public"));
+
+});
+
 
 
 app.listen(PORT, () => {
