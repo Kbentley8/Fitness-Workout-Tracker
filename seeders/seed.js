@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/fittrack");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fittrack");
 
 let workoutSeed = [
   {
